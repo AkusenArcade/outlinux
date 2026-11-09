@@ -1,0 +1,79 @@
+{
+  "name": "outlinux",
+  "productName": "Outlinux",
+  "version": "1.0.0",
+  "description": "Un wrapper desktop di Outlook Web per Linux, basato su Electron",
+  "main": "src/main.js",
+  "author": {
+    "name": "Outlinux",
+    "email": "akudesyn@gmail.com"
+  },
+  "homepage": "https://github.com/AkusenArcade/outlinux",
+  "license": "MIT",
+  "private": true,
+  "scripts": {
+    "start": "node scripts/start.js",
+    "dev": "node scripts/start.js --dev",
+    "lint": "eslint src scripts",
+    "start:system": "/usr/bin/electron .",
+    "smoke": "node scripts/smoke.js",
+    "popup-test": "node scripts/popup-test.js",
+    "icons": "bash scripts/make-icons.sh",
+    "dist": "electron-builder",
+    "dist:dir": "electron-builder --dir",
+    "dist:appimage": "electron-builder --linux AppImage",
+    "dist:deb": "electron-builder --linux deb",
+    "dist:rpm": "electron-builder --linux rpm"
+  },
+  "devDependencies": {
+    "electron": "^44.4.3",
+    "electron-builder": "^25.1.8",
+    "eslint": "^9.39.5"
+  },
+  "build": {
+    "appId": "dev.outlinux.app",
+    "productName": "Outlinux",
+    "artifactName": "${productName}-${version}-${arch}.${ext}",
+    "directories": {
+      "output": "dist",
+      "buildResources": "build"
+    },
+    "files": [
+      "src/**/*",
+      "assets/**/*",
+      "package.json"
+    ],
+    "linux": {
+      "target": [
+        "AppImage",
+        "deb"
+      ],
+      "category": "Network;Email;",
+      "icon": "build/icons",
+      "desktop": {
+        "Name": "Outlinux",
+        "GenericName": "Client di posta",
+        "Comment": "Outlook Web come applicazione desktop",
+        "Keywords": "email;mail;outlook;calendar;office;posta;",
+        "StartupWMClass": "outlinux",
+        "MimeType": "x-scheme-handler/mailto;"
+      },
+      "maintainer": "Outlinux <akudesyn@gmail.com>"
+    },
+    "deb": {
+      "depends": [
+        "libgtk-3-0",
+        "libnotify4",
+        "libnss3",
+        "libxss1",
+        "libxtst6",
+        "xdg-utils",
+        "libatspi2.0-0",
+        "libsecret-1-0"
+      ]
+    }
+  },
+  "allowScripts": {
+    "electron@44.4.3": true
+  }
+}

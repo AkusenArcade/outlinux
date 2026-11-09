@@ -1,0 +1,12 @@
+[Desktop Entry]
+Type=Application
+Name=Outlinux
+GenericName=Client di posta
+Comment=Outlook Web come applicazione desktop
+Exec=outlinux %U
+Icon=outlinux
+Terminal=false
+Categories=Network;Email;
+Keywords=email;mail;outlook;calendar;office;
+MimeType=x-scheme-handler/mailto;
+StartupWMClass=outlinux

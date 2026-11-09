@@ -1,0 +1,10 @@
+node_modules/
+dist/
+*.log
+.DS_Store
+
+# output di makepkg
+aur/src/
+aur/pkg/
+aur/outlinux/
+aur/*.pkg.tar.*
